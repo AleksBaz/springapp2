@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans  xmlns="http://www.springframework.org/schema/beans"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:context="http://www.springframework.org/schema/context"
+        xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:property-placeholder location="classpath:cinema.properties"/>
+
+    <bean id="Adventure"
+          class="springApp.cinema.FilmGenre.Adventure">
+    </bean>
+
+    <bean id="1"
+          class="springApp.cinema.Cinema">
+        <constructor-arg ref="Adventure"/>
+        <constructor-arg name="genre" value="${cinema.advantureGenre}"/>
+        <constructor-arg name="movieDuration" value="${cinema.indianaDuration}"/>
+    </bean>
+
+    <bean id="Comedy"
+          class="springApp.cinema.FilmGenre.Comedy">
+    </bean>
+
+    <bean id="2"
+          class="springApp.cinema.Cinema">
+        <property name="cinematograph"  ref="Comedy"/>
+        <property name="genre" value="${cinema.comedyGenre}"/>
+        <property name="movieDuration" value="${cinema.intouchablesDuration}"/>
+    </bean>
+
+    <bean id="Drama"
+          class="springApp.cinema.FilmGenre.Drama">
+    </bean>
+
+    <bean id="3"
+          class="springApp.cinema.Cinema">
+        <constructor-arg ref="Drama"/>
+        <constructor-arg name="genre" value="${cinema.dramaGenre}"/>
+        <constructor-arg name="movieDuration" value="${cinema.fGumpDuration}"/>
+    </bean>
+
+    <bean id="Horror"
+          class="springApp.cinema.FilmGenre.Horror">
+    </bean>
+
+    <bean id="4"
+          class="springApp.cinema.Cinema">
+        <property name="cinematograph" ref="Horror"/>
+        <property name="genre" value="${cinema.horrorCenre}"/>
+        <property name="movieDuration" value="${cinema.ringDuration}"/>
+    </bean>
+
+    <bean id="ScienceFiction"
+          class="springApp.cinema.FilmGenre.ScienceFiction">
+    </bean>
+
+    <bean id="5"
+          class="springApp.cinema.Cinema">
+        <constructor-arg ref="ScienceFiction"/>
+        <constructor-arg name="genre" value="${cinema.scienceFictionGenere}"/>
+        <constructor-arg name="movieDuration" value="${cinema.interstellarDuration}"/>
+    </bean>
+</beans>
